@@ -1,9 +1,9 @@
 #ifndef SoundRoom_H
 #define SoundRoom_H
 
-#include <QtCore/QObject>
+#include <QWidget>
 
-class SoundRoom : public QObject
+class SoundRoom : public QWidget
 {
 Q_OBJECT
 public:
