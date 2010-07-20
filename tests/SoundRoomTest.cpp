@@ -38,7 +38,7 @@ void SoundRoomTest::testWindowSize()
 void SoundRoomTest::testSpeaker()
 {
 	QCOMPARE(m_uut->m_speakerlist.count(), 1);
-	QCOMPARE(m_uut->m_speakerlist.first(), QPoint(0,0));
+	QCOMPARE(m_uut->m_speakerlist.first(), QPoint(10,0));
 }
 
 

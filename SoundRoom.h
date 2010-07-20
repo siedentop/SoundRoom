@@ -9,6 +9,7 @@ Q_OBJECT
 public:
 	SoundRoom();
 	virtual ~SoundRoom();
+	virtual void paintEvent(QPaintEvent* );
 	
 	QList<QPoint> m_speakerlist;
 };
