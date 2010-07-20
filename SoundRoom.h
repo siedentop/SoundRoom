@@ -7,8 +7,10 @@ class SoundRoom : public QWidget
 {
 Q_OBJECT
 public:
-    SoundRoom();
-    virtual ~SoundRoom();
+	SoundRoom();
+	virtual ~SoundRoom();
+	
+	QList<QPoint> m_speakerlist;
 };
 
 #endif // SoundRoom_H

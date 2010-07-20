@@ -34,5 +34,13 @@ void SoundRoomTest::testWindowSize()
 	QCOMPARE(m_uut->size(), QSize(300, 300));
 }
 
+//! Test that one speaker exists at position (0, 0)
+void SoundRoomTest::testSpeaker()
+{
+	QCOMPARE(m_uut->m_speakerlist.count(), 1);
+	QCOMPARE(m_uut->m_speakerlist.first(), QPoint(0,0));
+}
+
+
 QTEST_MAIN(SoundRoomTest)
 #include "SoundRoomTest.moc"
