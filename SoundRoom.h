@@ -2,6 +2,9 @@
 #define SoundRoom_H
 
 #include <QWidget>
+#include <QtCore/QList>
+
+#include "speaker.h"
 
 class SoundRoom : public QWidget
 {
@@ -11,7 +14,7 @@ public:
 	virtual ~SoundRoom();
 	virtual void paintEvent(QPaintEvent* );
 	
-	QList<QPoint> m_speakerlist;
+	QList<Speaker> m_speakerlist;
 };
 
 #endif // SoundRoom_H

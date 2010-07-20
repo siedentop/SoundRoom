@@ -6,9 +6,9 @@ enable_testing()
 
 include_directories(${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
-set(SoundRoom_SRCS SoundRoom.cpp main.cpp)
+set(SoundRoom_SRCS SoundRoom.cpp main.cpp speaker.cpp)
 
-add_library(SoundRoomlib SHARED SoundRoom.cpp)
+add_library(SoundRoomlib SHARED SoundRoom.cpp speaker.cpp) #TODO, HACK this is all not very pretty. the library is not needed
 target_link_libraries(SoundRoomlib ${QT_QTCORE_LIBRARY} ${QT_LIBRARIES})
 
 qt4_automoc(${SoundRoom_SRCS})

@@ -8,14 +8,15 @@ class SoundRoomTest : public QObject
 {
 Q_OBJECT
 private slots:
-    void initTestCase();
-    void init();
-    void cleanup();
-    void cleanupTestCase();
+	void initTestCase();
+	void init();
+	void cleanup();
+	void cleanupTestCase();
 
-    void testSuperClass();
-    void testWindowSize();
-    void testSpeaker();
+	void testSuperClass();
+	void testWindowSize();
+	void testSpeaker();
+	void testSpeakerfrequency();
     
 protected:
 	SoundRoom *m_uut;
