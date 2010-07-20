@@ -4,7 +4,6 @@
 
 SoundRoom::SoundRoom()
 {
-	printf("SoundRoom kinda works!\n");
 }
 
 SoundRoom::~SoundRoom()

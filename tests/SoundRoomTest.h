@@ -13,7 +13,7 @@ private slots:
     void cleanup();
     void cleanupTestCase();
 
-    void someTest();
+    void testSuperClass();
     
 protected:
 	SoundRoom *m_uut;

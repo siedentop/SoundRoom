@@ -1,7 +1,7 @@
 #include "SoundRoomTest.h"
 #include <QtTest/QTest>
 
-
+#include <stdio.h>
 
 void SoundRoomTest::initTestCase()
 {}
@@ -12,14 +12,18 @@ void SoundRoomTest::init()
 }
 
 void SoundRoomTest::cleanup()
-{}
+{
+	delete m_uut;
+}
 
 void SoundRoomTest::cleanupTestCase()
 {}
 
-void SoundRoomTest::someTest()
+//! Test that SoundRoom inherits from QWidget
+void SoundRoomTest::testSuperClass()
 {
-    QCOMPARE(1,2);
+	QString name = m_uut->metaObject()->superClass()->className();
+	QCOMPARE(name, QString("QWidget"));
 }
 
 
