@@ -14,6 +14,7 @@ private slots:
     void cleanupTestCase();
 
     void testSuperClass();
+    void testWindowSize();
     
 protected:
 	SoundRoom *m_uut;

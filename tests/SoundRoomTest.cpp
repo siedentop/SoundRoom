@@ -4,20 +4,22 @@
 #include <stdio.h>
 
 void SoundRoomTest::initTestCase()
-{}
-
-void SoundRoomTest::init()
 {
 	m_uut = new SoundRoom();
 }
 
+void SoundRoomTest::init()
+{
+}
+
 void SoundRoomTest::cleanup()
 {
-	delete m_uut;
 }
 
 void SoundRoomTest::cleanupTestCase()
-{}
+{
+	delete m_uut;
+}
 
 //! Test that SoundRoom inherits from QWidget
 void SoundRoomTest::testSuperClass()
@@ -26,6 +28,11 @@ void SoundRoomTest::testSuperClass()
 	QCOMPARE(name, QString("QWidget"));
 }
 
+//! Assert that size of window is 300px times 300px.
+void SoundRoomTest::testWindowSize()
+{
+	QCOMPARE(m_uut->size(), QSize(300, 300));
+}
 
 QTEST_MAIN(SoundRoomTest)
 #include "SoundRoomTest.moc"

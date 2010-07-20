@@ -1,10 +1,10 @@
-#include <QCoreApplication>
+#include <QtGui/QApplication>
 #include "SoundRoom.h"
-
 
 int main(int argc, char** argv)
 {
-    QCoreApplication app(argc, argv);
-    SoundRoom foo;
+    QApplication app(argc, argv);
+    SoundRoom widget;
+    widget.show();
     return app.exec();
 }
