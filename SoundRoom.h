@@ -16,7 +16,7 @@ public:
 	
 	QList<Speaker> m_speakerlist;
 private:
-	void drawSpeaker(Speaker speaker);
+	void drawSpeaker(Speaker* speaker);
 };
 
 #endif // SoundRoom_H

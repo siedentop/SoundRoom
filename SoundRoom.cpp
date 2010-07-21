@@ -15,11 +15,14 @@ SoundRoom::~SoundRoom()
 
 void SoundRoom::paintEvent(QPaintEvent* )
 {
-	drawSpeaker(m_speakerlist.first());
+	drawSpeaker(&m_speakerlist.first());
+	
+
+	
 }
 
 //! Draws a speaker. @param speaker Speaker to be drawn.
-void SoundRoom::drawSpeaker(Speaker speaker)
+void SoundRoom::drawSpeaker(Speaker* speaker)
 {
 	QPainter painter(this);
 	
@@ -27,7 +30,7 @@ void SoundRoom::drawSpeaker(Speaker speaker)
 		
 	painter.setBrush(Qt::red);
 	
-	painter.translate(speaker.m_pos);
+	painter.translate(speaker->m_pos);
 	painter.drawRect(-4, -4, 8, 8);
 }
 #include "SoundRoom.moc"
