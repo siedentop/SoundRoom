@@ -9,7 +9,7 @@
 #include <QtCore/QPoint>
 #include <Eigen/Core>
 
-
+#include "complex.h"
 
 class Speaker // : public QObject TODO: Doesn't like QObject, what a pity.
 {
@@ -19,7 +19,7 @@ public:
 	virtual ~Speaker();
 	
 	void setFrequency(double freq);
-	double getSound(QPoint &point); //make complex<double>
+	Complex getSound(); //make complex<double>
 	QPoint getPosition();
 	double getFrequency();
 

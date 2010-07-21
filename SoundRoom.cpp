@@ -8,6 +8,7 @@
 #include <Eigen/Core>
 
 #include "SoundRoom.h"
+#include "complex.h"
 
 SoundRoom::SoundRoom()
 {
@@ -44,12 +45,12 @@ void SoundRoom::shadePoint(QPoint* point)
 	
 // 	painter.translate(m_origin); 
 	
-	double local_volume = 0;
+	Complex local_volume = Complex();
 	foreach(Speaker speaker, m_speakerlist)
 	{
-		local_volume += speaker.getSound(*point);
+		local_volume = speaker.getSound();
 	}
-	QColor intensity(0, 0, 160, local_volume);
+	QColor intensity(0, 0, 160, local_volume.real);
 	painter.setBrush(intensity);
 	
  	painter.drawPoint(*point); // put back in once more than one point is drawn.
