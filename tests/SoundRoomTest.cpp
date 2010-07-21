@@ -40,7 +40,7 @@ void SoundRoomTest::testWindowSize()
 void SoundRoomTest::testSpeaker()
 {
 	QCOMPARE(m_uut->m_speakerlist.count(), 1);
-	QCOMPARE(m_uut->m_speakerlist.first().m_pos, QPoint(10,0));
+	QCOMPARE(m_uut->m_speakerlist.first().getPosition(), QPoint(10,0));
 }
 
 //! Give speaker a frequency of 440Hz
@@ -48,7 +48,7 @@ void SoundRoomTest::testSpeakerfrequency()
 {
 	Speaker speaker = m_uut->m_speakerlist.first();
 	speaker.setFrequency(440.0);
-	QCOMPARE(speaker.m_frequency, 440.0);
+	QCOMPARE(speaker.getFrequency(), 440.0);
 }
 
 

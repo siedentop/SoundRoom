@@ -19,4 +19,20 @@ void Speaker::setFrequency(double frequency)
 	m_frequency = frequency;
 }
 
+//! Returns position of speaker
+QPoint Speaker::getPosition()
+{
+	return m_pos;
+}
+
+//! Returns frequency of speaker
+double Speaker::getFrequency()
+{
+	return m_frequency;
+}
+
+// double Speaker::getSound(QPoint &point);
+// {
+// 	return 42;
+// }
 
