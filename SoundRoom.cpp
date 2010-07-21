@@ -45,9 +45,9 @@ void SoundRoom::shadePoint(QPoint* point)
 // 	painter.translate(m_origin); 
 	
 	double local_volume = 0;
-	foreach(const Speaker &speaker, m_speakerlist)
+	foreach(Speaker speaker, m_speakerlist)
 	{
-// 		local_volume += speaker.getPosition();
+		local_volume += speaker.getSound(*point);
 	}
 	QColor intensity(0, 0, 160, local_volume);
 	painter.setBrush(intensity);

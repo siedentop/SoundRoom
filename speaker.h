@@ -19,7 +19,7 @@ public:
 	virtual ~Speaker();
 	
 	void setFrequency(double freq);
-	double getSound(QPoint point); //make complex<double>
+	double getSound(QPoint &point); //make complex<double>
 	QPoint getPosition();
 	double getFrequency();
 

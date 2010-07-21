@@ -31,8 +31,8 @@ double Speaker::getFrequency()
 	return m_frequency;
 }
 
-// double Speaker::getSound(QPoint &point);
-// {
-// 	return 42;
-// }
+double Speaker::getSound(QPoint &point)
+{
+	return 42;
+}
 
