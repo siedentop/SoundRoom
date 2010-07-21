@@ -15,6 +15,8 @@ public:
 	virtual void paintEvent(QPaintEvent* );
 	
 	QList<Speaker> m_speakerlist;
+private:
+	void drawSpeaker(Speaker speaker);
 };
 
 #endif // SoundRoom_H
