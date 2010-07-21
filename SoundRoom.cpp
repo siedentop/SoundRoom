@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <QtGui/QPainter>
+#include <QtGui/QColormap>
 
 #include "SoundRoom.h"
 
@@ -9,7 +10,7 @@ SoundRoom::SoundRoom()
 	//TODO make non-resizable!
 	m_origin = QPoint(0, height()/2); //! Origin is on lefthand side in the middle
 	
-	m_speakerlist << Speaker(QPoint(10,0));
+	m_speakerlist << Speaker(QPoint(10,0), 440, 255);
 }
 
 
@@ -31,9 +32,16 @@ void SoundRoom::shadePoint(QPoint* point)
 	QPainter painter(this);
 	
 	painter.translate(m_origin); 
-		
-	painter.setBrush(Qt::black);
 	
+	double local_volume = 0;
+	foreach(const Speaker speaker, m_speakerlist)
+	{
+		local_volume += speaker.m_volume;
+	}
+	QColor intensity(0, 0, 160, local_volume);
+	painter.setBrush(intensity);
+	
+// 	painter.drawPoint(*point); // put back in once more than one point is drawn.
 	painter.translate(*point);
 	painter.drawRect(-4, -4, 8, 8);
 }
