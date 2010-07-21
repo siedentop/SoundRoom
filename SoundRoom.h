@@ -15,8 +15,10 @@ public:
 	virtual void paintEvent(QPaintEvent* );
 	
 	QList<Speaker> m_speakerlist;
+	QPoint m_origin;
 private:
 	void drawSpeaker(Speaker* speaker);
+	void shadePoint(QPoint* point);
 };
 
 #endif // SoundRoom_H
