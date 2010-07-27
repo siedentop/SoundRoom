@@ -12,8 +12,7 @@
 
 SoundRoom::SoundRoom()
 {
-	this->resize(300, 300);
-	//TODO make non-resizable!
+	this->resize(300, 300); //TODO: Make non-resizable
 	m_origin = QPoint(0, height()/2); //! Origin is on lefthand side in the middle
 	
 	m_speakerlist << Speaker(QPoint(10,0), 440, 255);
@@ -25,17 +24,20 @@ SoundRoom::~SoundRoom()
 
 void SoundRoom::paintEvent(QPaintEvent* )
 {
-	drawSpeaker(&m_speakerlist.first());
+	
 	
 	int x, y;
-	for(x=0; x<300; x +=3)
+	int x_max = width();
+	int y_max = height();
+	for(x=0; x<x_max; x +=3)
 	{
-		for(y=0; y<300; y +=3)
+		for(y=0; y<y_max; y +=3)
 		{
-			QPoint point(QPoint(x, y));
-			shadePoint(&point);
+			shadePoint(new QPoint(x, y)); 
 		}
 	}
+	
+	drawSpeaker(&m_speakerlist.first());
 }
 
 //! Shades a point. @param point Point to be shaded.
@@ -43,19 +45,20 @@ void SoundRoom::shadePoint(QPoint* point)
 {
 	QPainter painter(this);
 	
+	QColor colour(Qt::blue);
+	
 // 	painter.translate(m_origin); 
 	
-	Complex local_volume = Complex();
+	Complex local_volume;
 	foreach(Speaker speaker, m_speakerlist)
 	{
-		local_volume = speaker.getSound();
+		local_volume += speaker.getSound(*point);
 	}
-	QColor intensity(0, 0, 160, local_volume.real);
-	painter.setBrush(intensity);
 	
- 	painter.drawPoint(*point); // put back in once more than one point is drawn.
-// 	painter.translate(*point);
-// 	painter.drawRect(-4, -4, 8, 8);
+	QColor intensity(0, 0, 160, abs(local_volume.real()));
+	painter.setPen(intensity);
+	
+	painter.drawPoint(*point);
 }
 
 //! Draws a speaker. @param speaker Speaker to be drawn.

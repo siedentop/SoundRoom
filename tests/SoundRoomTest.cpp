@@ -51,6 +51,5 @@ void SoundRoomTest::testSpeakerfrequency()
 	QCOMPARE(speaker.getFrequency(), 440.0);
 }
 
-
 QTEST_MAIN(SoundRoomTest)
 #include "SoundRoomTest.moc"

@@ -2,7 +2,11 @@
 (c) 2010 Christoph Siedentop, <christophsiedentop@gmail.com
 */
 
+#include <Eigen/Core>
+
 #include "speaker.h"
+
+#define SOUNDSPEED 34300 //343m/s --> 34300cm/s
 
 Speaker::Speaker(QPoint pos, double frequency, double volume) : m_pos(pos), m_frequency(frequency), m_volume(volume)
 {
@@ -31,8 +35,13 @@ double Speaker::getFrequency()
 	return m_frequency;
 }
 
-Complex Speaker::getSound()
+
+//! Returns Phasor of Sound at a given point.
+Complex Speaker::getSound(QPoint &point)
 {
-	return Complex(42, -3);
+	QPoint p = m_pos - point;
+	double distance = sqrt(pow(p.x(), 2) + pow(p.y(), 2));
+	double phase = 2 * M_PI * m_frequency * distance / SOUNDSPEED;
+	return *Complex::createPhasor(m_volume, phase);
 }
 
