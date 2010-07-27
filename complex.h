@@ -24,6 +24,8 @@ public:
 	//! Returns imaginary part of complex number
 	double imag();
 	
+	void operator+=(const Complex &arg);
+	
 protected: 
 	double m_real;
 	double m_imag;

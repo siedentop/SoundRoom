@@ -32,3 +32,9 @@ double Complex::imag()
 {
 	return m_imag;
 }
+
+void Complex::operator+=(const Complex &rhs)
+{
+	m_real += rhs.m_real;
+	m_imag += rhs.m_imag;
+}

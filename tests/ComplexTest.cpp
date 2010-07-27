@@ -77,5 +77,14 @@ void ComplexTest::createStandard()
 	QCOMPARE(c.imag(), 13.0);
 }
 
+void ComplexTest::test_operator_plus_equal()
+{
+	Complex a(1, 2);
+	Complex b(4, -3);
+	a += b;
+	QCOMPARE(a.real(), Complex(5, -1).real());
+	QCOMPARE(a.imag(), Complex(5, -1).imag());
+}
+
 QTEST_MAIN(ComplexTest)
 #include "ComplexTest.moc"

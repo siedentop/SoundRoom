@@ -21,6 +21,7 @@ private slots:
 	void createPhasor();
 	void createEmpty();
 	void createStandard();
+	void test_operator_plus_equal();
 };
 
 #endif // COMPLEXTEST_H
