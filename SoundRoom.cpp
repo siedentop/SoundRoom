@@ -12,11 +12,11 @@ SoundRoom::SoundRoom()
 	m_origin = QPoint(width()/2, height()/2); //! Origin is on lefthand side in the middle
 	//! @note: All points are to be relative to m_origin!
 	
-	m_speakerlist << Speaker(QPoint(10,0) + m_origin, 440, 255);
-	m_speakerlist << Speaker(QPoint(10,39) + m_origin, 440, 128);
-	m_speakerlist << Speaker(QPoint(10,-39) + m_origin, 440, 128);
+	for (int i= 0; i< 10; ++i)
+	{
+		m_speakerlist << Speaker(QPoint(10,(int)(i*38.95)) + m_origin, 440, 255, i);
+	}
 }
-
 
 SoundRoom::~SoundRoom()
 {}

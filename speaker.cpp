@@ -8,7 +8,7 @@
 
 #define SOUNDSPEED 34300 //343m/s --> 34300cm/s
 
-Speaker::Speaker(QPoint pos, double frequency, double volume) : m_pos(pos), m_frequency(frequency), m_volume(volume)
+Speaker::Speaker(QPoint pos, double frequency, double volume, double phase_shift) : m_pos(pos), m_frequency(frequency), m_volume(volume), m_phase(phase_shift)
 {
 }
 
@@ -41,7 +41,7 @@ Complex Speaker::getSound(QPoint &point)
 {
 	QPoint p = m_pos - point;
 	double distance = sqrt(pow(p.x(), 2) + pow(p.y(), 2));
-	double phase = 2 * M_PI * m_frequency * distance / SOUNDSPEED;
+	double phase = 2 * M_PI * m_frequency * distance / SOUNDSPEED + m_phase;
 	return *Complex::createPhasor(m_volume, phase);
 }
 
