@@ -50,8 +50,15 @@ void ComplexTest::createPhasor()
 	
 	Complex c = *Complex::createPhasor(absolute, argument);
 
-	QCOMPARE(c.real(), real);
-	QCOMPARE(c.imag(), imag);
+	// Fuzzy compare for doubles is not fuzzy enough. So 1e-^^7 != 0 --> tests would not pass. Now they do.
+	if (real == 0)
+		QVERIFY(abs(c.real()) < 0.0000001);
+	else
+		QCOMPARE(c.real(), real);
+	if (imag == 0)
+		QVERIFY(abs(c.imag()) < 0.0000001);
+	else
+		QCOMPARE(c.imag(), imag);
 }
 
 //! Assert that an empty Complex can be created and is instantiated to (0, 0i)

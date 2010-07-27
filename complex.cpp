@@ -19,7 +19,6 @@ Complex::Complex(double _real, double _imag)
 
 Complex* Complex::createPhasor(double r, double phi)
 {
-	printf("R: %2.1f, Phi:%2.1f, real: %2.1f, imag: %2.1f \n", r, phi, r * cos(phi), r * sin(phi));
 	return new Complex(r * cos(phi), r * sin(phi));
 }
 
