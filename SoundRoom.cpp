@@ -1,11 +1,7 @@
 #include <stdio.h>
-// #include <math.h>
-// #include <complex.h>
 
 #include <QtGui/QPainter>
 #include <QtGui/QColormap>
-
-#include <Eigen/Core>
 
 #include "SoundRoom.h"
 #include "complex.h"
@@ -13,12 +9,12 @@
 SoundRoom::SoundRoom()
 {
 	this->resize(300, 300); //TODO: Make non-resizable
-	m_origin = QPoint(0, height()/2); //! Origin is on lefthand side in the middle
+	m_origin = QPoint(width()/2, height()/2); //! Origin is on lefthand side in the middle
 	//! @note: All points are to be relative to m_origin!
 	
 	m_speakerlist << Speaker(QPoint(10,0) + m_origin, 440, 255);
-	m_speakerlist << Speaker(QPoint(10,30) + m_origin, 440, 255);
-	
+	m_speakerlist << Speaker(QPoint(10,39) + m_origin, 440, 128);
+	m_speakerlist << Speaker(QPoint(10,-39) + m_origin, 440, 128);
 }
 
 
@@ -27,8 +23,6 @@ SoundRoom::~SoundRoom()
 
 void SoundRoom::paintEvent(QPaintEvent* )
 {
-	
-	
 	int x, y;
 	int x_max = width();
 	int y_max = height();
@@ -73,6 +67,6 @@ void SoundRoom::drawSpeaker(Speaker* speaker)
 	painter.setBrush(Qt::red);
 	
 	painter.translate(speaker->getPosition());
-	painter.drawRect(-4, -4, 8, 8); // Not really centred!
+	painter.drawRect(-4, -4, 8, 8); // Not really centred! TODO
 }
 #include "SoundRoom.moc"
