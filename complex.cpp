@@ -1,33 +1,30 @@
 /*
 (c) 2010 Christoph Siedentop, <christophsiedentop@gmail.com
 */
-#include <stdio.h>
 #include "complex.h"
 
-Complex::Complex(double _real, double _imag)
-	 : real(_real), imag(_imag) 
-{
-	printf("Created\n");
-}
+#include <stdio.h>
+#include <math.h>
 
 
 Complex::Complex()
- : real(0.0), imag(0.0)
 {
-	printf("Foo\n");
+	complex<double>::complex(0.0, 0.0);
 }
 
-Complex::~Complex()
-{}
-
-
-Complex Complex::operator+(const Complex &a)
+Complex::Complex(double _real, double _imag)
 {
-	return Complex(a.real + real, a.imag + imag);
+	complex<double>(_real, _imag);
 }
 
-void Complex::operator+=(const Complex &rhs)
+
+//! TODO: This always fails. Complex isn't returned!
+Complex Complex::createPhasor(double r, double phi)
 {
-	real += rhs.real;
-	imag += rhs.imag;
+	printf("R: %2.1f, Phi:%2.1f, real: %2.1f, imag: %2.1f \n", r, phi, r * cos(phi), r * sin(phi));
+	return Complex(r * cos(phi), r * sin(phi));
+}
+
+void Complex::setPhasor(double r, double phi)
+{
 }

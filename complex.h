@@ -1,24 +1,28 @@
 /*
 (c) 2010 Christoph Siedentop, <christophsiedentop@gmail.com
 */
-
+//! Expands complex<double> to provide phasor handling. 
 #ifndef COMPLEX_H
 #define COMPLEX_H
 
-class Complex
-{
+#include <complex>
+using namespace std;
+
+class Complex : public complex<double>
+{/* TODO: Either remove or add test. 
 public:
-	Complex(double _real, double _imag);
+	void createPhasor(double r, double phi);*/
+	
+public:
 	Complex();
-		
+	Complex(double _real, double _imag);
 	
-	virtual ~Complex();
+	//! Returns a Complex-number as specified by the phasor-coordinates. 
+	//! @param r Absolute value
+	//! @param phi Argument
+	Complex createPhasor(double r, double phi);
 	
-	double real;
-	double imag;
-	
-	Complex operator+(const Complex &arg);
-	void operator+=(const Complex &arg);
+	void setPhasor(double r, double phi);
 };
 
 #endif // COMPLEX_H
