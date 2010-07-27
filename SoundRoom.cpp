@@ -17,6 +17,8 @@ SoundRoom::SoundRoom()
 	//! @note: All points are to be relative to m_origin!
 	
 	m_speakerlist << Speaker(QPoint(10,0) + m_origin, 440, 255);
+	m_speakerlist << Speaker(QPoint(10,30) + m_origin, 440, 255);
+	
 }
 
 
@@ -38,17 +40,16 @@ void SoundRoom::paintEvent(QPaintEvent* )
 		}
 	}
 	
-	drawSpeaker(&m_speakerlist.first());
+	foreach(Speaker speaker, m_speakerlist)
+	{
+		drawSpeaker(&speaker);
+	}
 }
 
 //! Shades a point. @param point Point to be shaded.
 void SoundRoom::shadePoint(QPoint* point)
 {
 	QPainter painter(this);
-	
-	QColor colour(Qt::blue);
-	
-// 	painter.translate(m_origin); 
 	
 	Complex local_volume;
 	foreach(Speaker speaker, m_speakerlist)
