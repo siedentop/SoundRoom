@@ -37,7 +37,7 @@ void ComplexTest::createPhasor_data()
 	QTest::newRow("simple") << 1.0 << 0.0 << 1.0 << 0.0;
 	QTest::newRow("+90 deg") << 1.0 << M_PI/2 << 0.0 << 1.0;
 	QTest::newRow("-90 deg") << 1.0 << -M_PI/2 << 0.0 << -1.0;
-	QTest::newRow("30 deg") << 5.0 << M_PI/6 << 4.0 << 3.0;
+	QTest::newRow("30 deg") << 5.0 << asin(0.6) << 4.0 << 3.0;
 }
 
 //! Make sure that a phasor can be created. 
@@ -48,10 +48,7 @@ void ComplexTest::createPhasor()
 	QFETCH(double, real);
 	QFETCH(double, imag);
 	
-	Complex c;
-	c = c.createPhasor(absolute, argument);
-// 	c.createPhasor(absolute, argument);
-	
+	Complex c = *Complex::createPhasor(absolute, argument);
 
 	QCOMPARE(c.real(), real);
 	QCOMPARE(c.imag(), imag);
@@ -63,7 +60,14 @@ void ComplexTest::createEmpty()
 	Complex c;
 	QCOMPARE(c.real(), 0.0);
 	QCOMPARE(c.imag(), 0.0);
-	
+}
+
+//! Assert that standard complex can be created. 
+void ComplexTest::createStandard()
+{
+	Complex c(12.0, 13.0);
+	QCOMPARE(c.real(), 12.0);
+	QCOMPARE(c.imag(), 13.0);
 }
 
 QTEST_MAIN(ComplexTest)

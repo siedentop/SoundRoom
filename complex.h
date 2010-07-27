@@ -8,11 +8,8 @@
 #include <complex>
 using namespace std;
 
-class Complex : public complex<double>
-{/* TODO: Either remove or add test. 
-public:
-	void createPhasor(double r, double phi);*/
-	
+class Complex // : public complex<double> TODO what to do about this?
+{
 public:
 	Complex();
 	Complex(double _real, double _imag);
@@ -20,9 +17,16 @@ public:
 	//! Returns a Complex-number as specified by the phasor-coordinates. 
 	//! @param r Absolute value
 	//! @param phi Argument
-	Complex createPhasor(double r, double phi);
+	static Complex *createPhasor(double r, double phi);
 	
-	void setPhasor(double r, double phi);
+	//! Returns real part of complex number
+	double real();
+	//! Returns imaginary part of complex number
+	double imag();
+	
+protected: 
+	double m_real;
+	double m_imag;
 };
 
 #endif // COMPLEX_H

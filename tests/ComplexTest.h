@@ -20,6 +20,7 @@ private slots:
 	void createPhasor_data();
 	void createPhasor();
 	void createEmpty();
+	void createStandard();
 };
 
 #endif // COMPLEXTEST_H
