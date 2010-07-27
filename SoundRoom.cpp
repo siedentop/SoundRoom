@@ -52,12 +52,14 @@ void SoundRoom::shadePoint(QPoint* point)
 	QPainter painter(this);
 	
 	Complex local_volume;
+	int num_speakers = 0;
 	foreach(Speaker speaker, m_speakerlist)
 	{
+		++num_speakers;
 		local_volume += speaker.getSound(*point);
 	}
 	
-	QColor intensity(0, 0, 160, abs(local_volume.real()));
+	QColor intensity(0, 0, 160, abs(local_volume.real())/num_speakers);
 	painter.setPen(intensity);
 	
 	painter.drawPoint(*point);
