@@ -39,8 +39,8 @@ void SoundRoomTest::testWindowSize()
 //! Test that one speaker exists at position (10, 0)
 void SoundRoomTest::testSpeaker()
 {
-	QCOMPARE(m_uut->m_speakerlist.count(), 1);
-	QCOMPARE(m_uut->m_speakerlist.first().getPosition(), QPoint(10,0));
+	QCOMPARE(m_uut->m_speakerlist.count(), 20);
+	QCOMPARE(m_uut->m_speakerlist.first().getPosition(), QPoint(160, 150));
 }
 
 //! Give speaker a frequency of 440Hz
@@ -50,6 +50,18 @@ void SoundRoomTest::testSpeakerfrequency()
 	speaker.setFrequency(440.0);
 	QCOMPARE(speaker.getFrequency(), 440.0);
 }
+
+void SoundRoomTest::bench_shadepoint()
+{
+	m_uut->show();
+	
+	QBENCHMARK
+	{
+		m_uut->repaint();
+	}
+	m_uut->close();
+}
+
 
 QTEST_MAIN(SoundRoomTest)
 #include "SoundRoomTest.moc"

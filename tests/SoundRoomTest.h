@@ -17,6 +17,8 @@ private slots:
 	void testWindowSize();
 	void testSpeaker();
 	void testSpeakerfrequency();
+	
+	void bench_shadepoint();
     
 protected:
 	SoundRoom *m_uut;
