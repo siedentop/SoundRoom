@@ -12,9 +12,9 @@ SoundRoom::SoundRoom()
 	m_origin = QPoint(width()/2, height()/2); //! Origin is on lefthand side in the middle
 	//! @note: All points are to be relative to m_origin!
 	
-	for (int i= 0; i< 10; ++i)
+	for (int i= 0; i< 20; ++i)
 	{
-		m_speakerlist << Speaker(QPoint(10,(int)(i*38.95)) + m_origin, 440, 255, i);
+		m_speakerlist << Speaker(QPoint(10,(int)(i*19.5)) + m_origin, 440, 255, i*M_PI/6);
 	}
 }
 
@@ -24,11 +24,12 @@ SoundRoom::~SoundRoom()
 void SoundRoom::paintEvent(QPaintEvent* )
 {
 	int x, y;
+	int dx = 2;
 	int x_max = width();
 	int y_max = height();
-	for(x=0; x<x_max; x +=3)
+	for(x=0; x<x_max; x +=dx)
 	{
-		for(y=0; y<y_max; y +=3)
+		for(y=0; y<y_max; y +=dx)
 		{
 			shadePoint(new QPoint(x, y)); 
 		}
@@ -53,7 +54,7 @@ void SoundRoom::shadePoint(QPoint* point)
 		local_volume += speaker.getSound(*point);
 	}
 	
-	QColor intensity(0, 0, 160, abs(local_volume.real())/num_speakers);
+	QColor intensity(0, 0, 255, abs(local_volume.real())/num_speakers);
 	painter.setPen(intensity);
 	
 	painter.drawPoint(*point);
