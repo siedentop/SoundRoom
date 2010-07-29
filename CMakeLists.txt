@@ -10,7 +10,7 @@ find_package(Eigen2 REQUIRED)
 include_directories(${Eigen2_INCLUDE_DIRS})
 add_definitions(-DEIGEN_DONT_ALIGN)
 
-set(SoundRoom_SRCS SoundPoint.cpp SoundRoom.cpp speaker.cpp complex.cpp)
+set(SoundRoom_SRCS MainWindow.cpp SoundPoint.cpp SoundRoom.cpp speaker.cpp complex.cpp)
 
 add_library(SoundRoomlib SHARED ${SoundRoom_SRCS}) #TODO, HACK this is all not very pretty. the library is not needed
 target_link_libraries(SoundRoomlib ${QT_QTCORE_LIBRARY} ${QT_LIBRARIES} 
