@@ -6,8 +6,8 @@
 
 
 SoundPoint::SoundPoint(int x, int y)
+ : QPoint(x, y)
 {
-	QPoint::QPoint(x, y);
 }
 
 
