@@ -5,6 +5,7 @@
 #include <QtTest/QTest>
 
 #include "../SoundPoint.h"
+#include "../speaker.h"
 
 #include <stdio.h>
 
@@ -24,18 +25,19 @@ void SoundPointTest::cleanupTestCase()
 {
 }
 
-void SoundPointTest::test_constructor_data()
+void SoundPointTest::test_position_data()
 {
-	
+	//TODO
 }
 
-void SoundPointTest::test_constructor()
+void SoundPointTest::test_position()
 {
-	SoundPoint uut(12, 11);
+	QList<Speaker> speakerlist;
+	SoundPoint uut(12, 11, speakerlist);
 
 // 	printf("X: %d, Y: %d\n", uut.x(), uut.y());
-	QCOMPARE(uut.x(), 12);
-	QCOMPARE(uut.y(), 11);
+	QCOMPARE(uut.x(), 12.0); //TODO: Test that uut.x() really returns a position not something else!
+	QCOMPARE(uut.y(), 11.0);
 }
 
 void SoundPointTest::test_setLoudness()

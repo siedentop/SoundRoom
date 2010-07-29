@@ -19,8 +19,8 @@ private slots:
 	void cleanupTestCase();
 	
 	//! Make sure it can be created like a QPoint. 
-	void test_constructor(); 
-	void test_constructor_data();
+	void test_position(); 
+	void test_position_data();
 	
 	//! Assert that loudness can be set. 
 	void test_setLoudness();

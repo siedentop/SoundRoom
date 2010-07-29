@@ -45,3 +45,15 @@ Complex Speaker::getSound(QPoint &point)
 	return *Complex::createPhasor(m_volume, phase);
 }
 
+//! Draws a speaker. @param speaker Speaker to be drawn.
+/*void Speaker::paint(Speaker* speaker)
+{
+	QPainter painter(this);
+
+	painter.setBrush(Qt::red);
+	
+	painter.translate(speaker->getPosition());
+	painter.drawRect(-4, -4, 8, 8);
+ }  */
+
+#include "speaker.moc"

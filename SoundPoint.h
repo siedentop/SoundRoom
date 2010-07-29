@@ -7,14 +7,19 @@
 
 #include <QObject>
 #include <QPoint>
+#include <QtGui/QGraphicsItem>
+
+#include "speaker.h"
 
 
-class SoundPoint : public QObject, public QPoint
+class SoundPoint : public QGraphicsItem
 {
-Q_OBJECT
 public: 
-	SoundPoint(int x, int y);
-	~SoundPoint();
+	SoundPoint(int x, int y, QList<Speaker> speakerlist);
+	~SoundPoint();     
+	QRectF boundingRect() const;
+	void paint(QPainter *painter, const QStyleOptionGraphicsItem *item, QWidget *widget);
+	
 	
 	double loudness;
 };

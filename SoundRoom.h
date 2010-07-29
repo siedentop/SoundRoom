@@ -22,20 +22,15 @@ public:
 	virtual ~SoundRoom();
 	
 	QGraphicsView *view() const;
-	virtual void paintEvent(QPaintEvent* );
-	
-	QList<Speaker> m_speakerlist;
-	QPoint m_origin;
 
 private slots:
 	void setupMatrix();
 	void setResetButtonEnabled();
 	void zoomOut();
 	void zoomIn();
+	void resetView();
 	
 private:
-	void drawSpeaker(Speaker* speaker);
-	void shadePoint(QPoint* point);
 	QGraphicsView *m_graphicsView;
 	QSlider *zoomSlider;
 	QToolButton *resetButton;
