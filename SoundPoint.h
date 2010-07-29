@@ -15,16 +15,16 @@
 class SoundPoint : public QGraphicsItem
 {
 public: 
-	SoundPoint(int x, int y, QList<Speaker> speakerlist);
+	SoundPoint(int x, int y, int dx, int dy);
 	~SoundPoint();     
 	QRectF boundingRect() const;
 	void paint(QPainter *painter, const QStyleOptionGraphicsItem *item, QWidget *widget);
-	
-	double loudness;
+	void calculateColour(QList<Speaker> *speakerlist);
+
 private:
 	QPoint* m_position;
 	QColor *m_colour;
-	void calculateColour(QList<Speaker> speakerlist);
+	const QRectF *m_rect;
 };
 
 #endif // SOUNDPOINT_H

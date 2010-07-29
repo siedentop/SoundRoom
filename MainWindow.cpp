@@ -32,7 +32,7 @@ void MainWindow::populateScene()
 {
 	m_scene = new QGraphicsScene;
 	
-	QPoint origin(400, 300); //! Origin is in the middle
+	QPoint origin(0, 300); //! Origin is in the middle
 	//! @note: All points are to be relative to origin!
 	
 	for (int i= 0; i< 20; ++i)
@@ -41,15 +41,17 @@ void MainWindow::populateScene()
 	}
 	
 	int x, y;
-	int dx = 1;
-	int x_max = 800;
+	int dx = 2;
+	int dy = 5;
+	int x_max = 400;
 	int y_max = 600;
 	for(x=0; x<x_max; x +=dx)
 	{
-		for(y=0; y<y_max; y +=dx)
+		for(y=0; y<y_max; y +=dy)
 		{
-			QGraphicsItem *item = new SoundPoint(x, y, m_speakerlist);
+			SoundPoint *item = new SoundPoint(x, y, dx, dy);
 			item->setPos(QPointF(x, y)); //? TODO ???
+			item->calculateColour(&m_speakerlist);
 			m_scene->addItem(item);
 		}
 	}

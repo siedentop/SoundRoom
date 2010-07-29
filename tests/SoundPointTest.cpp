@@ -32,8 +32,7 @@ void SoundPointTest::test_position_data()
 
 void SoundPointTest::test_position()
 {
-	QList<Speaker> speakerlist;
-	SoundPoint uut(12, 11, speakerlist);
+	SoundPoint uut(12, 11, 1, 1);
 
 // 	printf("X: %d, Y: %d\n", uut.x(), uut.y());
 	QCOMPARE(uut.x(), 12.0); //TODO: Test that uut.x() really returns a position not something else!
