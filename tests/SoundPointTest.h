@@ -9,8 +9,24 @@
 #include <SoundPoint.h>
 
 
-class SoundPointTest : public QObject, public SoundPoint
+class SoundPointTest : public QObject
 {
+Q_OBJECT
+private slots:
+	void initTestCase();
+	void init();
+	void cleanup();
+	void cleanupTestCase();
+	
+	//! Make sure it can be created like a QPoint. 
+	void test_constructor(); 
+	void test_constructor_data();
+	
+	//! Assert that loudness can be set. 
+	void test_setLoudness();
+	
+	//! Assert that loudness can be read.
+	void test_getLoudness();
 };
 
 #endif // SOUNDPOINTTEST_H

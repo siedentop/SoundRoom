@@ -13,6 +13,9 @@ class SoundPoint : public QObject, public QPoint
 {
 Q_OBJECT
 public: 
+	SoundPoint(int x, int y);
+	~SoundPoint();
+	
 	double loudness;
 };
 

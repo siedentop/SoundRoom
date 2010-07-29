@@ -5,6 +5,7 @@
 
 #include "SoundRoom.h"
 #include "complex.h"
+#include "SoundPoint.h"
 
 SoundRoom::SoundRoom()
 {
@@ -24,7 +25,7 @@ SoundRoom::~SoundRoom()
 void SoundRoom::paintEvent(QPaintEvent* )
 {
 	int x, y;
-	int dx = 2;
+	int dx = 1;
 	int x_max = width();
 	int y_max = height();
 	for(x=0; x<x_max; x +=dx)
@@ -55,8 +56,8 @@ void SoundRoom::shadePoint(QPoint* point)
 	
 // 	QColor intensity(0, 0, 255, abs(local_volume.real())/num_speakers); <--- Calculation costly but looks more pretty.
 	QColor intensity(Qt::blue);
-	painter.setPen(intensity.darker(local_volume.real() + 100));
-// 	
+	painter.setPen(intensity.darker(local_volume.real()/num_speakers + 100));
+
 	painter.drawPoint(*point);
 }
 
@@ -68,6 +69,6 @@ void SoundRoom::drawSpeaker(Speaker* speaker)
 	painter.setBrush(Qt::red);
 	
 	painter.translate(speaker->getPosition());
-	painter.drawRect(-4, -4, 8, 8); // Not really centred! TODO
+	painter.drawRect(-4, -4, 8, 8);
 }
 #include "SoundRoom.moc"

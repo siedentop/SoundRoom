@@ -4,8 +4,16 @@ set(SoundRoomTest_SRCS SoundRoomTest.cpp)
 qt4_automoc(${SoundRoomTest_SRCS})
 add_executable(SoundRoomTest ${SoundRoomTest_SRCS})
 add_test(SoundRoomTest SoundRoomTest)
-
 target_link_libraries(SoundRoomTest SoundRoomlib ${QT_QTTEST_LIBRARY})
+
+set(SRCS SoundPointTest.cpp)
+qt4_automoc(${SRCS})
+add_executable(SoundPointTest ${SRCS})
+add_test(SoundPointTest SoundPointTest)
+target_link_libraries(SoundPointTest SoundRoomlib ${QT_QTTEST_LIBRARY})
+
+
+
 
 set(ComplexTest_SRCS ComplexTest.cpp)
 qt4_automoc(${ComplexTest_SRCS})

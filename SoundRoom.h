@@ -16,6 +16,7 @@ public:
 	
 	QList<Speaker> m_speakerlist;
 	QPoint m_origin;
+
 private:
 	void drawSpeaker(Speaker* speaker);
 	void shadePoint(QPoint* point);
