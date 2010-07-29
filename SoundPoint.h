@@ -20,8 +20,11 @@ public:
 	QRectF boundingRect() const;
 	void paint(QPainter *painter, const QStyleOptionGraphicsItem *item, QWidget *widget);
 	
-	
 	double loudness;
+private:
+	QPoint* m_position;
+	QColor *m_colour;
+	void calculateColour(QList<Speaker> speakerlist);
 };
 
 #endif // SOUNDPOINT_H

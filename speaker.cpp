@@ -37,9 +37,9 @@ double Speaker::getFrequency()
 
 
 //! Returns Phasor of Sound at a given point.
-Complex Speaker::getSound(QPoint &point)
+Complex Speaker::getSound(QPoint* point)
 {
-	QPoint p = m_pos - point;
+	QPoint p = m_pos - *point;
 	double distance = sqrt(pow(p.x(), 2) + pow(p.y(), 2));
 	double phase = 2 * M_PI * m_frequency * distance / SOUNDSPEED + m_phase;
 	return *Complex::createPhasor(m_volume, phase);

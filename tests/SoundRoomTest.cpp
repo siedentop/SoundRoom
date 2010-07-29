@@ -57,7 +57,7 @@ void SoundRoomTest::bench_shadepoint()
 	
 	QBENCHMARK
 	{
-		m_uut->repaint();
+		m_uut->repaint(); //TODO: Check that this test still makes sense?!
 	}
 	m_uut->close();
 }
