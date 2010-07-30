@@ -1,6 +1,9 @@
 #include <stdio.h>
 
-#include <QtGui>
+#include <QtGui> 
+#ifndef QT_NO_OPENGL
+#include <QtOpenGL>
+#endif
 
 #include "SoundRoom.h"
 #include "complex.h"
@@ -53,6 +56,13 @@ SoundRoom::SoundRoom(QWidget *parent)
 	topLayout->addLayout(zoomSliderLayout, 0, 1);
 	topLayout->addWidget(resetButton, 1, 0);
 	setLayout(topLayout);
+	
+	// Enable OpenGl 
+	#ifndef QT_NO_OPENGL
+	qDebug() << "Opengl: " << QGLFormat::hasOpenGL();
+	m_graphicsView->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers)));
+	#endif
+
 
 	connect(resetButton, SIGNAL(clicked()), this, SLOT(resetView()));
 	connect(zoomSlider, SIGNAL(valueChanged(int)), this, SLOT(setupMatrix()));

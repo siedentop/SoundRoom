@@ -7,7 +7,6 @@
 
 #include <QObject>
 #include <QtCore/QPoint>
-#include <Eigen/Core>
 
 #include "complex.h"
 

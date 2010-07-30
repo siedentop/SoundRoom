@@ -2,8 +2,6 @@
 (c) 2010 Christoph Siedentop, <christophsiedentop@gmail.com
 */
 
-#include <Eigen/Core>
-
 #include "speaker.h"
 
 #define SOUNDSPEED 34300 //343m/s --> 34300cm/s
