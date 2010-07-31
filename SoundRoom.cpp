@@ -14,10 +14,6 @@ SoundRoom::SoundRoom(QWidget *parent)
 {	//TODO: largely taken from Example under GPL. This should be replaced at some time.
 	setFrameStyle(Sunken | StyledPanel);
 	m_graphicsView = new QGraphicsView;
-	m_graphicsView->setRenderHint(QPainter::Antialiasing, false);
-	m_graphicsView->setDragMode(QGraphicsView::RubberBandDrag);
-// 	m_graphicsView->setOptimizationFlags(QGraphicsView::DontSavePainterState);
-// 	m_graphicsView->setViewportUpdateMode(QGraphicsView::SmartViewportUpdate);
 
 	int size = style()->pixelMetric(QStyle::PM_ToolBarIconSize);
 	QSize iconSize(size, size);
@@ -50,6 +46,7 @@ SoundRoom::SoundRoom(QWidget *parent)
 	resetButton = new QToolButton;
 	resetButton->setText(tr("0"));
 	resetButton->setEnabled(false);
+	resetButton->setIconSize(iconSize);
 
 	QGridLayout *topLayout = new QGridLayout;
 	topLayout->addWidget(m_graphicsView, 0, 0);
@@ -60,9 +57,15 @@ SoundRoom::SoundRoom(QWidget *parent)
 	// Enable OpenGl 
 	#ifndef QT_NO_OPENGL
 // 	qDebug() << "Opengl: " << QGLFormat::hasOpenGL();
-	m_graphicsView->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers)));
+// 	m_graphicsView->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers))); TODO: 
+/** @todo 
+TODO: 
+OpenGL doesn't seem to make a difference in speed (at least on my machine which is known to have OpenGL problems). 
+However, when included it returns the following after closing the programm: 
+do_wait: drmWaitVBlank returned -1, IRQs don't seem to be working correctly.
+Try adjusting the vblank_mode configuration parameter.
+*/
 	#endif
-
 
 	connect(resetButton, SIGNAL(clicked()), this, SLOT(resetView()));
 	connect(zoomSlider, SIGNAL(valueChanged(int)), this, SLOT(setupMatrix()));
