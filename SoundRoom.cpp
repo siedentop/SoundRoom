@@ -55,11 +55,11 @@ SoundRoom::SoundRoom(QWidget *parent)
 	
 	// Enable OpenGl 
 	#ifndef QT_NO_OPENGL
-	qDebug() << "Opengl: " << QGLFormat::hasOpenGL() << "Version None: " << (QGLFormat::OpenGLVersionFlags() == QGLFormat::OpenGL_Version_None);
-	QGLFormat fmt;
-	fmt.setAlpha(true);
-	m_graphicsView->setViewport(new QGLWidget(fmt)); 
-	m_graphicsView->setCacheMode(QGraphicsView::CacheBackground);
+// 	qDebug() << "Opengl: " << QGLFormat::hasOpenGL() << "Version None: " << (QGLFormat::OpenGLVersionFlags() == QGLFormat::OpenGL_Version_None);
+// 	QGLFormat fmt;
+// 	fmt.setAlpha(true);
+// 	m_graphicsView->setViewport(new QGLWidget(fmt)); 
+// 	m_graphicsView->setCacheMode(QGraphicsView::CacheBackground);
 /** @todo 
 TODO: 
 OpenGL doesn't seem to make a difference in speed (at least on my machine which is known to have OpenGL problems). 
@@ -67,7 +67,8 @@ However, when included it returns the following after closing the programm:
 do_wait: drmWaitVBlank returned -1, IRQs don't seem to be working correctly.
 Try adjusting the vblank_mode configuration parameter.
 */
-	#endif
+	#endif 
+
 
 	connect(resetButton, SIGNAL(clicked()), this, SLOT(resetView()));
 	connect(zoomSlider, SIGNAL(valueChanged(int)), this, SLOT(setupMatrix()));
