@@ -7,7 +7,6 @@
 
 #include "SoundRoom.h"
 #include "complex.h"
-#include "SoundPoint.h"
 
 SoundRoom::SoundRoom(QWidget *parent)
  : QFrame(parent)
