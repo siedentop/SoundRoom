@@ -52,7 +52,9 @@ void MainWindow::populateScene()
 			SoundPoint *item = new SoundPoint(x, y, dx, dy);
 			item->setPos(QPointF(x, y)); //? TODO ???
 			item->calculateColour(&m_speakerlist);
+			item->setCacheMode(QGraphicsItem::ItemCoordinateCache);
 			m_scene->addItem(item);
+// 			m_scene->addPixmap();
 		}
 	}
 	foreach(Speaker speaker, m_speakerlist)

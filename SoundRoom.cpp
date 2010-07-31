@@ -56,8 +56,11 @@ SoundRoom::SoundRoom(QWidget *parent)
 	
 	// Enable OpenGl 
 	#ifndef QT_NO_OPENGL
-// 	qDebug() << "Opengl: " << QGLFormat::hasOpenGL();
-// 	m_graphicsView->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers))); TODO: 
+	qDebug() << "Opengl: " << QGLFormat::hasOpenGL() << "Version None: " << (QGLFormat::OpenGLVersionFlags() == QGLFormat::OpenGL_Version_None);
+	QGLFormat fmt;
+	fmt.setAlpha(true);
+	m_graphicsView->setViewport(new QGLWidget(fmt)); 
+	m_graphicsView->setCacheMode(QGraphicsView::CacheBackground);
 /** @todo 
 TODO: 
 OpenGL doesn't seem to make a difference in speed (at least on my machine which is known to have OpenGL problems). 

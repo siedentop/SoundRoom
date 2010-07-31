@@ -37,15 +37,13 @@ void SoundPoint::calculateColour(QList< Speaker >* speakerlist)
 	
 // 	qDebug() << "Loudness: " << local_volume.real() << "Nums: " << num_speakers;
 	m_colour = new QColor(0, 0, 255, abs(local_volume.real())/num_speakers); //TODO <--- Calculation costly but looks nice.
-
-// 	m_colour = new QColor(Qt::blue);
-// // 	m_colour->darker(local_volume.real()/num_speakers + 100);
-// 	m_colour->darker(80);
 }
 
 void SoundPoint::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
 	painter->fillRect(*m_rect, *m_colour);
+// 	painter->setPen(*m_colour);
+// 	painter->drawPoint(QPoint(0,0));
 }
 
 #include "SoundPoint.moc"
