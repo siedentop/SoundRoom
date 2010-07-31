@@ -26,14 +26,13 @@ void SoundRoomTest::cleanupTestCase()
 //! Test that SoundRoom inherits from QWidget
 void SoundRoomTest::testSuperClass()
 {
-	QString name = m_uut->metaObject()->superClass()->className();
-	QCOMPARE(name, QString("QWidget"));
+	QVERIFY(m_uut->isWidgetType());
 }
 
 //! Assert that size of window is 300px times 300px.
 void SoundRoomTest::testWindowSize()
 {
-	QCOMPARE(m_uut->size(), QSize(300, 300));
+	QCOMPARE(m_uut->size(), QSize(640, 480));
 }
 
 //! Test that one speaker exists at position (10, 0)
