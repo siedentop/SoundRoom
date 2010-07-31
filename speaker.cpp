@@ -6,7 +6,8 @@
 
 #define SOUNDSPEED 34300 //343m/s --> 34300cm/s
 
-Speaker::Speaker(QPoint pos, double frequency, double volume, double phase_shift) : m_pos(pos), m_frequency(frequency), m_volume(volume), m_phase(phase_shift)
+Speaker::Speaker(QPoint pos, double frequency, double volume, double phase_shift)
+ : m_pos(pos), m_frequency(frequency), m_volume(volume), m_phase(phase_shift)
 {
 }
 

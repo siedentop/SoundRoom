@@ -6,7 +6,13 @@ enable_testing()
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_HOME_DIRECTORY}/cmake)
 include_directories(${CMAKE_HOME_DIRECTORY} ${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
-set(SoundRoom_SRCS MainWindow.cpp SoundPoint.cpp SoundRoom.cpp speaker.cpp complex.cpp)
+set(SoundRoom_SRCS 
+	MainWindow.cpp
+	SoundPoint.cpp
+	SoundRoom.cpp
+	speaker.cpp
+	complex.cpp
+)
 set(SoundRoom_LIB
 	${QT_QTCORE_LIBRARY} 
 	${QT_LIBRARIES}

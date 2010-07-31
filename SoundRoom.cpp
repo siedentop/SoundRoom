@@ -16,9 +16,9 @@ SoundRoom::SoundRoom(QWidget *parent)
 	m_graphicsView = new QGraphicsView;
 	m_graphicsView->setRenderHint(QPainter::Antialiasing, false);
 	m_graphicsView->setDragMode(QGraphicsView::RubberBandDrag);
-	m_graphicsView->setOptimizationFlags(QGraphicsView::DontSavePainterState);
-	m_graphicsView->setViewportUpdateMode(QGraphicsView::SmartViewportUpdate);
-	
+// 	m_graphicsView->setOptimizationFlags(QGraphicsView::DontSavePainterState);
+// 	m_graphicsView->setViewportUpdateMode(QGraphicsView::SmartViewportUpdate);
+
 	int size = style()->pixelMetric(QStyle::PM_ToolBarIconSize);
 	QSize iconSize(size, size);
 	
@@ -59,7 +59,7 @@ SoundRoom::SoundRoom(QWidget *parent)
 	
 	// Enable OpenGl 
 	#ifndef QT_NO_OPENGL
-	qDebug() << "Opengl: " << QGLFormat::hasOpenGL();
+// 	qDebug() << "Opengl: " << QGLFormat::hasOpenGL();
 	m_graphicsView->setViewport(new QGLWidget(QGLFormat(QGL::SampleBuffers)));
 	#endif
 
