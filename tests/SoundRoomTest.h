@@ -8,7 +8,7 @@
 #include <SoundRoom.h>
 #include <QtCore/QObject>
 
-class SoundRoomTest : public SoundRoom
+class SoundRoomTest : public QObject
 {
 Q_OBJECT
 private slots:
@@ -18,7 +18,11 @@ private slots:
 	void cleanupTestCase();
 
 	void testSuperClass();
-
+	void testSize(); //! Assert that passing of size to soundroom has correct effect.
+	void testPixel(); //! Assert that pixels have the correct colour
+	void testPixel_data();
+	void testSpeakerlist(); //! @todo: what to test?
+	void test_returnQPixmap(); //! QPixmap
 };
 
 #endif // SOUNDROOMTEST_H

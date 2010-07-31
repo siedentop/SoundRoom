@@ -2,7 +2,10 @@ project(SoundRoom)
 cmake_minimum_required(VERSION 2.6)
 find_package(Qt4 REQUIRED)	
 include(${QT_USE_FILE})
+
 enable_testing()
+set(TEST ON CACHE BOOL "Build tests") # TODO Turning this off doesn't work. 
+
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_HOME_DIRECTORY}/cmake)
 include_directories(${CMAKE_HOME_DIRECTORY} ${QT_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
 
@@ -20,9 +23,11 @@ set(SoundRoom_LIB
 )
 
 
-add_library(SoundRoomlib SHARED ${SoundRoom_SRCS}) #TODO, HACK this is all not very pretty. the library is not needed
-target_link_libraries(SoundRoomlib ${SoundRoom_LIB})
-add_subdirectory(tests)
+if(TEST)
+	add_library(SoundRoomlib SHARED ${SoundRoom_SRCS}) # TODO, HACK this is all not very pretty. the library is not needed
+	target_link_libraries(SoundRoomlib ${SoundRoom_LIB})
+	add_subdirectory(tests)
+endif()
 
 qt4_automoc(${SoundRoom_SRCS})
 add_executable(SoundRoom ${SoundRoom_SRCS} main.cpp)

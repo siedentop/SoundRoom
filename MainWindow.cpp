@@ -11,7 +11,7 @@
 MainWindow::MainWindow(QWidget *parent)
  : QWidget(parent)
 {
-	m_scene = new SoundRoom();
+	m_scene = new SoundRoom(QSize(800, 600));
 	
 	View *view = new View();
 	view->view()->setScene(m_scene);
