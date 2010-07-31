@@ -8,7 +8,7 @@ include_directories(${CMAKE_HOME_DIRECTORY} ${QT_INCLUDES} ${CMAKE_CURRENT_BINAR
 
 set(SoundRoom_SRCS 
 	MainWindow.cpp
-	SoundRoom.cpp
+	View.cpp
 	speaker.cpp
 	complex.cpp
 )

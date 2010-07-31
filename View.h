@@ -1,5 +1,5 @@
-#ifndef SoundRoom_H
-#define SoundRoom_H
+#ifndef View_H
+#define View_H
 
 #include <QWidget>
 #include <QtCore/QList>
@@ -14,12 +14,12 @@ QT_FORWARD_DECLARE_CLASS(QSlider)
 QT_FORWARD_DECLARE_CLASS(QToolButton)
  
 
-class SoundRoom : public QFrame
+class View : public QFrame
 {
 Q_OBJECT
 public:
-	SoundRoom(QWidget *parent = 0);
-	virtual ~SoundRoom();
+	View(QWidget *parent = 0);
+	virtual ~View();
 	
 	QGraphicsView *view() const;
 
@@ -37,4 +37,4 @@ private:
 	
 };
 
-#endif // SoundRoom_H
+#endif // View_H

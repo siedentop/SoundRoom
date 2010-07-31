@@ -5,10 +5,10 @@
 #include <QtOpenGL>
 #endif
 
-#include "SoundRoom.h"
+#include "View.h"
 #include "complex.h"
 
-SoundRoom::SoundRoom(QWidget *parent)
+View::View(QWidget *parent)
  : QFrame(parent)
 {	//TODO: largely taken from Example under GPL. This should be replaced at some time.
 	setFrameStyle(Sunken | StyledPanel);
@@ -80,11 +80,11 @@ Try adjusting the vblank_mode configuration parameter.
 	setupMatrix();
 }
 
-SoundRoom::~SoundRoom()
+View::~View()
 {}
 
 //! Set ups view according to set scale.
-void SoundRoom::setupMatrix()
+void View::setupMatrix()
 {
 	qreal scale = qPow(qreal(2), (zoomSlider->value() - 250) / qreal(50));
 
@@ -96,19 +96,19 @@ void SoundRoom::setupMatrix()
 }
 
 //! Zooms in a single step.
-void SoundRoom::zoomIn()
+void View::zoomIn()
 {
 	zoomSlider->setValue(zoomSlider->value() + zoomSlider->singleStep());
 }
 
 //! Zooms out a single step.
-void SoundRoom::zoomOut()
+void View::zoomOut()
 {
 	zoomSlider->setValue(zoomSlider->value() - zoomSlider->singleStep());
 }
 
 //! Resets view.
-void SoundRoom::resetView()
+void View::resetView()
 {
 	zoomSlider->setValue(250);
 	resetButton->setEnabled(false);
@@ -119,14 +119,14 @@ void SoundRoom::resetView()
 
 
 //! Enables the Reset Button. TODO: Taken from Example.
-void SoundRoom::setResetButtonEnabled()
+void View::setResetButtonEnabled()
 {
 	resetButton->setEnabled(true);
 }
 
-QGraphicsView *SoundRoom::view() const
+QGraphicsView *View::view() const
 {
 	return m_graphicsView;
 }
 
-#include "SoundRoom.moc"
+#include "View.moc"

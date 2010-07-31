@@ -1,10 +1,10 @@
-#ifndef SoundRoomTEST_H
-#define SoundRoomTEST_H
+#ifndef ViewTEST_H
+#define ViewTEST_H
 
 #include <QtCore/QObject>
-#include "../SoundRoom.h"
+#include "../View.h"
 
-class SoundRoomTest : public QObject
+class ViewTest : public QObject
 {
 Q_OBJECT
 private slots:
@@ -21,7 +21,7 @@ private slots:
 	void bench_shadepoint();
     
 protected:
-	SoundRoom *m_uut;
+	View *m_uut;
 };
 
-#endif // SoundRoomTEST_H
+#endif // ViewTEST_H

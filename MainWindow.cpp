@@ -3,7 +3,7 @@
 */
 
 #include "MainWindow.h"
-#include "SoundRoom.h"
+#include "View.h"
 
 #include <QtGui>
 
@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
 	populateScene();
 
-	SoundRoom *view = new SoundRoom();
+	View *view = new View();
 	view->view()->setScene(m_scene);
 
 	QHBoxLayout *layout = new QHBoxLayout;
