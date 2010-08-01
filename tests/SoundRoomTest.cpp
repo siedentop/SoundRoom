@@ -40,7 +40,7 @@ void SoundRoomTest::testPixel()
 	QImage image = room->getPixmap()->toImage();
 	
 	QFETCH(QPoint, point);
-	QColor colour(Qt::blue);
+	QColor colour(Qt::blue); //obviously stupid...
 	QCOMPARE(image.pixel(point), colour.rgb()); //TODO: Has rgb() some alpha channel? 
 }
 
@@ -69,8 +69,6 @@ void SoundRoomTest::test_returnQPixmap()
 	SoundRoom *room = new SoundRoom(QSize(100, 100));
 	QCOMPARE(room->m_image, room->getPixmap()->toImage());
 }
-
-
 
 QTEST_MAIN(SoundRoomTest)
 #include "SoundRoomTest.moc"

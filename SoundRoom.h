@@ -18,12 +18,14 @@ class SoundRoom : public QGraphicsScene
 {
 public: 
 	SoundRoom(QSize size = QSize(10, 10));
-	QPixmap* getPixmap();
+	QPixmap *getPixmap();
+	QRgb calculateColour(QPoint *position);
 	
 protected:
 	QImage m_image;
 	QList<Speaker> m_speakers;
 	QSize m_size;
+	QPixmap m_pixmap;
 	
 // #ifdef TEST //TODO: make sure this really works. (also see above!)
 private: 
