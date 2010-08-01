@@ -8,7 +8,7 @@
 #include <complex>
 using namespace std;
 
-class Complex // : public complex<double> TODO what to do about this?
+class Complex  : public complex<double> // TODO what to do about this?
 {
 public:
 	Complex();
@@ -23,6 +23,13 @@ public:
 	double real();
 	//! Returns imaginary part of complex number
 	double imag();
+	
+	//! Returns complement
+	Complex complement(); //TODO: Doesn't work. but test doesn't fail!
+	
+	//! Returns the length of the vector.
+	double length();
+	
 	
 	void operator+=(const Complex &arg);
 	

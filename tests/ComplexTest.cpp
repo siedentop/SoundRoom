@@ -26,6 +26,35 @@ void ComplexTest::cleanupTestCase()
 {
 }
 
+void ComplexTest::test_complement_data()
+{
+	QTest::addColumn<double>("real");
+	QTest::addColumn<double>("imag");
+	
+	QTest::newRow("1, 0") << 1.0 << 0.0;
+	QTest::newRow("0, 0") << 0.0 << 0.0;
+	QTest::newRow("1, 1") << 1.0 << 1.0;
+	QTest::newRow("0, -1") << 0.0 << -1.0;
+}
+
+void ComplexTest::test_complement()
+{
+	QFETCH(double, real);
+	QFETCH(double, imag);
+	
+	Complex c(real, imag);
+	QCOMPARE(c.complement(), Complex(real, -imag));
+	
+}
+
+void ComplexTest::test_length()
+{
+	Complex c(3, 4);
+	double result = c.length();
+	QCOMPARE(result, 5.0);
+}
+
+
 void ComplexTest::createPhasor_data()
 {
 	QTest::addColumn<double>("absolute");

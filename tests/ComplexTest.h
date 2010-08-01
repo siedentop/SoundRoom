@@ -22,6 +22,9 @@ private slots:
 	void createEmpty();
 	void createStandard();
 	void test_operator_plus_equal();
+	void test_complement();
+	void test_complement_data();
+	void test_length();
 };
 
 #endif // COMPLEXTEST_H
