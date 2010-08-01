@@ -17,8 +17,6 @@ SoundRoom::SoundRoom (QSize size ) : m_size(size)
 	
 	m_image = QImage(size, QImage::Format_ARGB32);
 	
-// 	m_image.setColor(1, Qt::blue);
-	
 	int x_max = size.width();
 	int y_max = size.height();
 	for(int x=0; x<x_max; ++x)
@@ -26,8 +24,7 @@ SoundRoom::SoundRoom (QSize size ) : m_size(size)
 		for(int y=0; y<y_max; ++y)
 		{
 			QPoint point(x, y);
-			m_image.setPixel(point, QColor(Qt::blue).rgb());
-// 			m_image.setPixel(point, calculateColour(&point));
+			m_image.setPixel(point, calculateColour(&point));
 		}
 	}
 	foreach(Speaker speaker, m_speakers)
@@ -35,7 +32,7 @@ SoundRoom::SoundRoom (QSize size ) : m_size(size)
 // 		m_scene->addItem (drawSpeaker(&speaker)); //TODO
 	}
 	
-	m_pixmap = QPixmap::fromImage(m_image); // = QPixmap::fromImage(m_image);
+	m_pixmap = QPixmap::fromImage(m_image);
 	this->addPixmap(m_pixmap);
 }
 
@@ -53,5 +50,5 @@ QRgb SoundRoom::calculateColour(QPoint *position)
 		local_volume += speaker.getSound(position);
 	}
 	
-	return QColor(0, 0, 255, abs(local_volume.real())/num_speakers).rgb(); //TODO <--- Calculation costly but looks nice.
+	return QColor(0, 0, 255, abs(local_volume.real())/num_speakers).rgba(); //TODO  Really should work with power calculation!
 }

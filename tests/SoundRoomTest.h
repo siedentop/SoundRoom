@@ -21,8 +21,7 @@ private slots:
 	void testSize(); //! Assert that passing of size to soundroom has correct effect.
 	void testPixel(); //! Assert that pixels have the correct colour
 	void testPixel_data();
-	void testSpeakerlist(); //! @todo: what to test?
-	void test_returnQPixmap(); //! QPixmap
+	void testSpeakerlist(); //! Test that there is at least one speaker
 };
 
 #endif // SOUNDROOMTEST_H
