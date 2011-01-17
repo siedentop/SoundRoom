@@ -19,7 +19,7 @@ set(SoundRoom_SRCS
 set(SoundRoom_LIB
 	${QT_QTCORE_LIBRARY} 
 	${QT_LIBRARIES}
-	/usr/lib/libQtOpenGL.so.4.6.2
+	/usr/lib/libQtOpenGL.so
 )
 
 
