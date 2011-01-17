@@ -42,7 +42,6 @@ void SoundRoomTest::testPixel()
 	
 	QFETCH(QPoint, point);
 	QColor colour(room->calculateColour(&point));
-	qDebug() << image.pixel(point); 
 	QCOMPARE(image.pixel(point), colour.rgba()); //FIXME: This always returns a zero. weird, because it didn't before. 
 }
 
